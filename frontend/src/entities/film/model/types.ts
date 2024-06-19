@@ -1,9 +1,9 @@
 export type Film = {
   id: number;
-  releaseYear: string;
+  release_year: string;
   duration: number;
   genre: string;
-  shortDescription: string;
+  summary: string;
   title: string;
   rating: number;
   director: string;
@@ -14,10 +14,10 @@ export type Film = {
 export const films: Film[] = [
   {
     id: 1,
-    releaseYear: "2019",
+    release_year: "2019",
     duration: 181,
     genre: "Action",
-    shortDescription:
+    summary:
       "The Avengers assemble once more in order to reverse Thanos' actions.",
     title: "Avengers: Endgame",
     rating: 8,
@@ -27,10 +27,10 @@ export const films: Film[] = [
   },
   {
     id: 2,
-    releaseYear: "2019",
+    release_year: "2019",
     duration: 132,
     genre: "Drama",
-    shortDescription:
+    summary:
       "A gripping story of a marriage breaking up and a family staying together.",
     title: "Marriage Story",
     rating: 8,
@@ -40,10 +40,10 @@ export const films: Film[] = [
   },
   {
     id: 3,
-    releaseYear: "2020",
+    release_year: "2020",
     duration: 150,
     genre: "Action",
-    shortDescription: "A soldier fights through time to save the world.",
+    summary: "A soldier fights through time to save the world.",
     title: "Tenet",
     rating: 7,
     director: "Christopher Nolan",
@@ -52,10 +52,10 @@ export const films: Film[] = [
   },
   {
     id: 4,
-    releaseYear: "2019",
+    release_year: "2019",
     duration: 122,
     genre: "Comedy",
-    shortDescription: "Two co-workers fall in love amidst a workplace comedy.",
+    summary: "Two co-workers fall in love amidst a workplace comedy.",
     title: "Long Shot",
     rating: 6,
     director: "Jonathan Levine",
@@ -64,11 +64,10 @@ export const films: Film[] = [
   },
   {
     id: 5,
-    releaseYear: "2018",
+    release_year: "2018",
     duration: 140,
     genre: "Horror",
-    shortDescription:
-      "A family must live in silence to avoid mysterious creatures.",
+    summary: "A family must live in silence to avoid mysterious creatures.",
     title: "A Quiet Place",
     rating: 7,
     director: "John Krasinski",
@@ -77,10 +76,10 @@ export const films: Film[] = [
   },
   {
     id: 6,
-    releaseYear: "2018",
+    release_year: "2018",
     duration: 129,
     genre: "Action",
-    shortDescription:
+    summary:
       "A young African prince inherits the throne and must protect his nation.",
     title: "Black Panther",
     rating: 7,
@@ -90,11 +89,10 @@ export const films: Film[] = [
   },
   {
     id: 7,
-    releaseYear: "2017",
+    release_year: "2017",
     duration: 121,
     genre: "Thriller",
-    shortDescription:
-      "A social worker fights to protect a young girl from abuse.",
+    summary: "A social worker fights to protect a young girl from abuse.",
     title: "The Girl with All the Gifts",
     rating: 6,
     director: "Colm McCarthy",
@@ -103,10 +101,10 @@ export const films: Film[] = [
   },
   {
     id: 8,
-    releaseYear: "2016",
+    release_year: "2016",
     duration: 115,
     genre: "Sci-Fi",
-    shortDescription:
+    summary:
       "A linguist works with the military to communicate with alien lifeforms.",
     title: "Arrival",
     rating: 8,
@@ -116,10 +114,10 @@ export const films: Film[] = [
   },
   {
     id: 9,
-    releaseYear: "2015",
+    release_year: "2015",
     duration: 135,
     genre: "Drama",
-    shortDescription: "A New York socialite dreams of becoming a singer.",
+    summary: "A New York socialite dreams of becoming a singer.",
     title: "Florence Foster Jenkins",
     rating: 7,
     director: "Stephen Frears",
@@ -128,11 +126,10 @@ export const films: Film[] = [
   },
   {
     id: 10,
-    releaseYear: "2015",
+    release_year: "2015",
     duration: 150,
     genre: "Action",
-    shortDescription:
-      "An apocalyptic story set in the furthest reaches of our planet.",
+    summary: "An apocalyptic story set in the furthest reaches of our planet.",
     title: "Mad Max: Fury Road",
     rating: 8,
     director: "George Miller",
@@ -141,10 +138,10 @@ export const films: Film[] = [
   },
   {
     id: 11,
-    releaseYear: "2014",
+    release_year: "2014",
     duration: 169,
     genre: "Sci-Fi",
-    shortDescription:
+    summary:
       "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
     title: "Interstellar",
     rating: 8,
@@ -154,10 +151,10 @@ export const films: Film[] = [
   },
   {
     id: 12,
-    releaseYear: "2013",
+    release_year: "2013",
     duration: 140,
     genre: "Drama",
-    shortDescription:
+    summary:
       "The story of a man who falls in love with a computer operating system.",
     title: "Her",
     rating: 8,
@@ -167,10 +164,10 @@ export const films: Film[] = [
   },
   {
     id: 13,
-    releaseYear: "2012",
+    release_year: "2012",
     duration: 143,
     genre: "Drama",
-    shortDescription:
+    summary:
       "A biopic depicting the last four months of President Lincoln's life.",
     title: "Lincoln",
     rating: 7,
@@ -180,10 +177,10 @@ export const films: Film[] = [
   },
   {
     id: 14,
-    releaseYear: "2011",
+    release_year: "2011",
     duration: 117,
     genre: "Comedy",
-    shortDescription:
+    summary:
       "A look at the lives of staff members working in a bustling office.",
     title: "Horrible Bosses",
     rating: 6,
@@ -193,10 +190,10 @@ export const films: Film[] = [
   },
   {
     id: 15,
-    releaseYear: "2010",
+    release_year: "2010",
     duration: 148,
     genre: "Action",
-    shortDescription:
+    summary:
       "A thief who steals corporate secrets through dream-sharing technology.",
     title: "Inception",
     rating: 8,
@@ -206,10 +203,10 @@ export const films: Film[] = [
   },
   {
     id: 16,
-    releaseYear: "2009",
+    release_year: "2009",
     duration: 162,
     genre: "Fantasy",
-    shortDescription:
+    summary:
       "A paraplegic Marine dispatched to the moon Pandora on a unique mission.",
     title: "Avatar",
     rating: 7,
@@ -219,10 +216,10 @@ export const films: Film[] = [
   },
   {
     id: 17,
-    releaseYear: "2008",
+    release_year: "2008",
     duration: 152,
     genre: "Action",
-    shortDescription: "Batman raises the stakes in his war on crime.",
+    summary: "Batman raises the stakes in his war on crime.",
     title: "The Dark Knight",
     rating: 9,
     director: "Christopher Nolan",
@@ -231,10 +228,10 @@ export const films: Film[] = [
   },
   {
     id: 18,
-    releaseYear: "2007",
+    release_year: "2007",
     duration: 117,
     genre: "Comedy",
-    shortDescription:
+    summary:
       "A pregnant teenager makes a plan to find a suitable adoptive couple.",
     title: "Juno",
     rating: 7,
@@ -244,10 +241,10 @@ export const films: Film[] = [
   },
   {
     id: 19,
-    releaseYear: "2006",
+    release_year: "2006",
     duration: 115,
     genre: "Action",
-    shortDescription:
+    summary:
       "A young police officer must prevent a bomb from exploding aboard a city bus.",
     title: "Speed",
     rating: 7,
@@ -257,10 +254,10 @@ export const films: Film[] = [
   },
   {
     id: 20,
-    releaseYear: "2005",
+    release_year: "2005",
     duration: 115,
     genre: "Action",
-    shortDescription:
+    summary:
       "A paraplegic Marine dispatched to the moon Pandora on a unique mission.",
     title: "Avatar",
     rating: 7,
