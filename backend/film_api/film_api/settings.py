@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',               # Приложение Django REST Framework
     'films',                        # Ваше собственное приложение films
-    'rest_framework_swagger',
 ]
 
 
