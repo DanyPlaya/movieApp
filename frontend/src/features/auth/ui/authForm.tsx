@@ -15,11 +15,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import z from "zod";
+import { redirect, useNavigate } from "react-router-dom";
 const formSchema = z.object({
   username: z.string(),
   password: z.string(),
 });
 export const AuthForm = () => {
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,13 +34,14 @@ export const AuthForm = () => {
       localStorage.setItem("username", JSON.stringify(values.username));
       localStorage.setItem("password", JSON.stringify(values.password));
       localStorage.setItem("isAuth", "true");
+      navigate("/");
     }
   }
   return (
-    <Card>
-      <CardContent>
+    <Card className="w-[600px] h-[300px]">
+      <CardContent className="">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
+          <form className="grid gap-10" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
               name="username"
@@ -60,7 +63,11 @@ export const AuthForm = () => {
                 <FormItem>
                   <FormLabel>Введите пароль</FormLabel>
                   <FormControl>
-                    <Input placeholder="Введите пароль" {...field} />
+                    <Input
+                      placeholder="Введите пароль"
+                      type="password"
+                      {...field}
+                    />
                   </FormControl>
 
                   <FormMessage />

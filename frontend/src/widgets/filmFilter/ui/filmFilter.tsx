@@ -56,12 +56,9 @@ export const FilmFilter = (props: FilmFilterProps) => {
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     setFilterData(values);
-    // console.log(values);
   }
-  //   console.log(directors);
+
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>

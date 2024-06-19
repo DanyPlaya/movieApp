@@ -12,8 +12,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class FilmViewSet(viewsets.ModelViewSet):
     queryset = Film.objects.all()
     serializer_class = FilmSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
+    # permission_classes = [permissions.IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
         queryset = Film.objects.all()
@@ -37,11 +37,11 @@ class FilmViewSet(viewsets.ModelViewSet):
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
+    # permission_classes = [permissions.IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
 
 @api_view(['GET'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def actors_by_film(request, film_id):
     try:
         roles = Role.objects.filter(film_id=film_id)
@@ -52,7 +52,7 @@ def actors_by_film(request, film_id):
         raise Http404("Фильм не найден")
 
 @api_view(['GET'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def films_by_actor(request, actor_id):
     try:
         roles = Role.objects.filter(actor_id=actor_id)
@@ -63,7 +63,7 @@ def films_by_actor(request, actor_id):
         raise Http404("Актер не найден")
 
 @api_view(['POST'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def add_actors_to_film(request, film_id):
     try:
         film = Film.objects.get(id=film_id)
@@ -86,14 +86,14 @@ def add_actors_to_film(request, film_id):
     return Response({'message': 'Актеры успешно добавлены'}, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def directors_list(request):
     directors = Film.objects.values('director').annotate(count=Count('id'))
     director_list = [{'name': item['director'], 'film_count': item['count']} for item in directors]
     return JsonResponse(director_list, safe=False)
 
 @api_view(['GET'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def genres_list(request):
     genres = Film.objects.values_list('genre', flat=True).distinct()
     return JsonResponse(list(genres), safe=False)

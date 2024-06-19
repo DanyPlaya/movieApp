@@ -25,10 +25,10 @@ export const FilmCard = (props: FilmCardProps) => {
         </CardDescription>
       </CardHeader>
       <CardContent className="p-4 flex-1 gap-5 flex flex-col md:flex-row md:items-stretch">
-        {film.image ? (
+        {film.img ? (
           <img
             className="w-full h-48 object-cover rounded-lg md:w-1/2"
-            src={film.image}
+            src={film.img}
             alt={`${film.title} poster`}
           />
         ) : (
