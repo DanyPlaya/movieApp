@@ -4,6 +4,7 @@ from django.db import models
 
 class Film(models.Model):
     title = models.CharField(max_length=255)
+    img = models.ImageField(upload_to='film_images/', null=True, blank=True)
     release_year = models.IntegerField()
     duration = models.IntegerField()  # in minutes
     genre = models.CharField(max_length=100)

@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',      # Система сообщений Django
     'django.contrib.staticfiles',   # Статические файлы Django
     'corsheaders',
-
+    'drf_yasg',
     'rest_framework',               # Приложение Django REST Framework
     'films',                        # Ваше собственное приложение films
+    'rest_framework_swagger',
 ]
 
 
