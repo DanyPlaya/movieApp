@@ -11,4 +11,5 @@ router.register(r'actors', views.ActorViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('directors/', views.directors_list, name='directors-list'),
+    path('genres/', views.genres_list, name='genres-list'),
 ]

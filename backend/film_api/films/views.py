@@ -44,3 +44,7 @@ def directors_list(request):
     directors = Film.objects.values('director').annotate(count=Count('id'))
     director_list = [{'name': item['director'], 'film_count': item['count']} for item in directors]
     return JsonResponse(director_list, safe=False)
+
+def genres_list(request):
+    genres = Film.objects.values_list('genre', flat=True).distinct()
+    return JsonResponse(list(genres), safe=False)
