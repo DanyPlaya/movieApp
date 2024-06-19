@@ -60,7 +60,28 @@ def films_by_actor(request, actor_id):
         return Response(serializer.data)
     except Role.DoesNotExist:
         return Response({"message": "Актер не найден"}, status=status.HTTP_404_NOT_FOUND)
-    
+
+@api_view(['POST'])
+def add_actors_to_film(request, film_id):
+    try:
+        film = Film.objects.get(id=film_id)
+    except Film.DoesNotExist:
+        return Response({'error': 'Film not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    actors_data = request.data.get('actors')
+    if not actors_data:
+        return Response({'error': 'No actors data provided'}, status=status.HTTP_400_BAD_REQUEST)
+
+    for actor_data in actors_data:
+        try:
+            actor = Actor.objects.get(id=actor_data['actor_id'])
+        except Actor.DoesNotExist:
+            return Response({'error': f"Actor with id {actor_data['actor_id']} not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        role_name = actor_data.get('role', '')
+        role, created = Role.objects.get_or_create(actor=actor, film=film, role=role_name)
+
+    return Response({'message': 'Actors added successfully'}, status=status.HTTP_200_OK)
 
 def directors_list(request):
     directors = Film.objects.values('director').annotate(count=Count('id'))
