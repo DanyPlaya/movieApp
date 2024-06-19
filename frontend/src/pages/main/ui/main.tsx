@@ -1,36 +1,41 @@
+import { useGetFilms } from "@/entities/film";
 import { FilmList } from "@/features/film";
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  Input,
-} from "@/shared/ui";
+import { Input } from "@/shared/ui";
+import { FilmFilter } from "@/widgets/filmFilter";
+import { useState } from "react";
+import { useDebounce } from "use-debounce";
 
 export const MainPage = () => {
+  const [searchValue, setSeacrhValue] = useState("");
+  const [value] = useDebounce(searchValue, 500);
+  const [filters, setFilters] = useState<{
+    start_year?: number;
+    end_year?: number;
+    director?: string;
+    genre?: string;
+  }>();
+
+  const { data: films } = useGetFilms({
+    director: filters?.director,
+    end_year: filters?.end_year === 0 ? undefined : filters?.end_year,
+    start_year: filters?.start_year === 0 ? undefined : filters?.start_year,
+    genre: filters?.genre,
+  });
+  console.log(filters);
   return (
-    <div className="p-4 grid gap-4 bg-[#F7F7F7]">
-      <div className="flex gap-10">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant={"outline"}>Фильтры</Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
-              <DialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        <Input />
+    <div className="p-4 grid gap-4 ">
+      <div className="flex gap-8">
+        <Input
+          value={searchValue}
+          onChange={(e) => setSeacrhValue(e.target.value)}
+        />
+        <FilmFilter setFilterData={setFilters} />
       </div>
-      <FilmList />
+      {films ? (
+        <FilmList films={films || []} searchValue={value} />
+      ) : (
+        <div>Пусто</div>
+      )}
     </div>
   );
 };
